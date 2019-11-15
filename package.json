@@ -1,0 +1,23 @@
+{
+  "name": "amazon-storefront",
+  "version": "1.0.0",
+  "description": "Application using mysql and node.js",
+  "main": "bamazon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tawnfran/Amazon-storefront.git"
+  },
+  "author": "Tawny Francis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tawnfran/Amazon-storefront/issues"
+  },
+  "homepage": "https://github.com/tawnfran/Amazon-storefront#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mysql": "^2.17.1"
+  }
+}
