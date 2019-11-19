@@ -55,39 +55,66 @@ function start(products) {
 
             console.log(checkid)
             var product = checkInventory(products, checkid);
-            if (product){
+            if (product) {
                 console.log("Next we need to ask the customer for quantity")
-
+                checkQuantity(product)
             } else {
                 console.log("We couldn't find the item!")
             }
         })
     function checkInventory(products, checkid) {
         for (var i = 0; i < products.length; i++) {
-            
+
             if (checkid === products[i].item_id) {
                 return products[i];
             }
 
         }
         return null;
+
     }
 
-    function checkQuantity(product){
+    function checkQuantity(product) {
         inquirer
-        .prompt({
-            name: "quantity",
-            type: "input",
-            message: "How many would you like to buy?"
+            .prompt({
+                name: "quantity",
+                type: "input",
+                message: "How many would you like to buy?"
 
-        }).then(function (val) {
-            var quantityInput = val.quantity
-            if (quantityInput > product.stock_quanity){
-                console.log("There is not enough quantity!")
-            } else {
-                console.log("There is enough, now onto the purchase")
-            }
-        })
+            }).then(function (val) {
+                var quantityInput = val.quantity
+                if (quantityInput > product.stock_quanity) {
+                    console.log("There is not enough quantity!")
+                } else {
+                    //update function in mysql stock quanity- quanity bought = 
+                    updateProduct(product.item_id, quantityInput, product.stock_quanity, product.price);
+                    console.log("There is enough, now onto the purchase")
+                }
+
+            })
     }
+    function updateProduct(item_id, quantityInput, stock_quanity, price) {
+        var newQuantity = stock_quanity - quantityInput;
+        var totalprice = quantityInput * price;
 
-}
+        console.log("Updating stock quanity...\n");
+        var query = connection.query(
+            "UPDATE products SET ? WHERE ?",
+            [
+                {
+                    stock_quanity: newQuantity
+                },
+                {
+                    item_id: item_id
+                }
+            ],
+            function(error) {
+                if (error) throw error;
+                console.log("Purchase placed successfully!");
+                console.log("Total price is $" + totalprice);
+                readProducts();
+              }
+        
+        );
+    }
+}  //display total cost how many buying * cost of item

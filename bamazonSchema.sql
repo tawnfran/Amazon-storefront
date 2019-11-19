@@ -14,34 +14,34 @@ CREATE TABLE products(
 
 -- Creates new rows
 INSERT INTO products (product_name, department_name, price, stock_quanity)
-VALUES ("MacBook Pro", "Electronics", 450, 1);
+VALUES ("MacBook Pro", "Electronics", 450, 2);
 
 INSERT INTO products (product_name, department_name, price, stock_quanity)
-VALUES ("Beats Wireless 3", "Electronics", 85, 1);
+VALUES ("Beats Wireless 3", "Electronics", 85, 3);
 
 INSERT INTO products (product_name, department_name, price, stock_quanity)
-VALUES ("Apple Watch Series 2", "Electronics", 150, 1);
+VALUES ("Apple Watch Series 2", "Electronics", 150, 3);
 
 INSERT INTO products (product_name, department_name, price, stock_quanity)
 VALUES ("Ikea Loveseat", "Home-goods", 350, 1);
 
 INSERT INTO products (product_name, department_name, price, stock_quanity)
-VALUES ("2011 Buick Regal", "Auto", 2500, 1);
+VALUES ("2011 Buick Regal", "Auto", 2500, 5);
 
 INSERT INTO products (product_name, department_name, price, stock_quanity)
-VALUES ("iPhone 8", "Electronics", 200, 1);
+VALUES ("iPhone 8", "Electronics", 200, 8);
 
 INSERT INTO products (product_name, department_name, price, stock_quanity)
-VALUES ("Ikea Floor Lamp", "Home-goods", 65, 1);
+VALUES ("Ikea Floor Lamp", "Home-goods", 65, 4);
 
 INSERT INTO products (product_name, department_name, price, stock_quanity)
-VALUES ("Sip Set- Holidays edition", "Home-goods", 25, 1);
+VALUES ("Sip Set- Holidays edition", "Home-goods", 25, 9);
 
 INSERT INTO products (product_name, department_name, price, stock_quanity)
-VALUES ("Mini-hooper Game Set", "Toys", 60, 1);
+VALUES ("Mini-hooper Game Set", "Toys", 60, 2);
 
 INSERT INTO products (product_name, department_name, price, stock_quanity)
-VALUES ("Uno", "Toys", 5, 1);
+VALUES ("Uno", "Toys", 5, 18);
 
 
 
