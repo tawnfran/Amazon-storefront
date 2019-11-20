@@ -56,7 +56,7 @@ function start(products) {
             console.log(checkid)
             var product = checkInventory(products, checkid);
             if (product) {
-                console.log("Next we need to ask the customer for quantity")
+                // console.log("Next we need to ask the customer for quantity")
                 checkQuantity(product)
             } else {
                 console.log("We couldn't find the item!")
@@ -108,13 +108,34 @@ function start(products) {
                     item_id: item_id
                 }
             ],
-            function(error) {
+            function (error) {
                 if (error) throw error;
                 console.log("Purchase placed successfully!");
                 console.log("Total price is $" + totalprice);
-                readProducts();
-              }
-        
+                //  ask customer if they wanna exit or do another purchase 
+                start();
+            }
+
         );
     }
-}  //display total cost how many buying * cost of item
+    // function which prompts the user for what action they should take
+    function start() {
+        inquirer
+            .prompt({
+                name: "buyOrLeave",
+                type: "list",
+                message: "Would you like to [BUY ANOTHER ITEM] or [EXIT]?",
+                choices: ["BUY ANOTHER ITEM", "EXIT"]
+            })
+            .then(function (answer) {
+                // based on their answer, either call the bid or the post functions
+                if (answer.buyOrLeave === "BUY ANOTHER ITEM") {
+                    readProducts();
+                }
+
+                else {
+                    connection.end();
+                }
+            });
+    }
+}  
