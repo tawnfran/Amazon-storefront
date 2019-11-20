@@ -8,6 +8,7 @@ It starts off by showing the user the table "products"
 
 After intially showing the user the table of products, it then asks the user for the ID of the item they want to purchase. 
 // insert SC of startfunc asking ID for item//
+![Step 1](assets/step1.png)
 
 After taking the input ID from the user, it then calls a function to check the inventory to make sure there is quantity in stock. If the item is sold out, it will display a message to the user saying it is unavailable.
 // insert SC of we couldnt find the item//
